@@ -19,71 +19,246 @@ Use assignment_test.py to test your functions
 
 import tkinter as tk 
 from tkinter import *
+import math
 window= tk.Tk()
 window.title("tk")
-window.geometry("320x150")
+window.geometry("320x160")
 win=window
 
+state1 = IntVar()
+state1.set(1)
+state2 = IntVar()
+state2.set(1)
+state3 = IntVar()
+state3.set(1)
+state4 = IntVar()
+state4.set(1)
+state5 = IntVar()
+state5.set(1)
+state6 = IntVar()
+state6.set(1)
+state7 = IntVar()
+state7.set(1)
+state8 = IntVar()
+state8.set(1)
 #------------------------------------------
 
 
 def binary_to_decimal(binary):
+    
+    if binary[0]==1:
+        a=128
+    else:
+        a=0
+    
+    if binary[1]==1:
+        b=64
+    else:
+        b=0
+
+    if binary[2]==1:
+        c=32
+    else:
+        c=0
+
+    if binary[3]==1:
+        d=16
+    else:
+        d=0
+
+    if binary[4]==1:
+        e=8
+    else:
+        e=0
+
+    if binary[5]==1:
+        f=4
+    else:
+        f=0
+
+    if binary[6]==1:
+        g=2
+    else:
+        g=0
+
+    if binary[7]==1:
+        h=1
+    else:
+        h=0
+
+    decimal= a+b+c+d+e+f+g+h
+    return decimal
+    get_binary()
+
     # binary is a tuple of length 8
     # return value is an integer decimal
-    pass
+    
 
     #return decimal 
 
-def decimal_to_binary(decimal):
+def decimal_to_binary(r):
+    binary2=[]
+    if r > 1:
+       decimal_to_binary(r//2)
+    s= (r % 2)
+
+    
+    binary2.append(s)
+
+
     # decimal is an integer value
     # binary is a tuple of length 8 that contains 1's and 0's
-    pass
+    return binary2
+    get_binary()
     #return binary
 
 
 def get_binary():
+
+    r= e1.get()
+    r= int(r)
+
+    print(r)
+
     # function should read the entry widget and generate an integer
     # this integer will be used as an input parameter for decimal to binary and the result updated
     # in the 8 checkboxes
-    pass
-    binary = binary_to_decimal(decimal)
+
+    binary2 = decimal_to_binary(r)
+
+    if binary2[0]==1:
+        state1.set(1)
+    else:
+        state1.set(0)
+
+    if binary2[1]==1:
+        state2.set(1)
+    else:
+        state2.set(0)
+
+    if binary2[2]==1:
+        state3.set(1)
+    else:
+        state3.set(0)
+
+    if binary2[3]==1:
+       state4.set(1)
+    else:
+       state4.set(0)
+
+    if binary2[4]==1:
+       state5.set(1)
+    else:
+       state5.set(0)
+
+    if binary2[5]==1:
+       state6.set(1)
+    else:
+       state6.set(0)
+
+    if binary2[6]==1:
+       state7.set(1)
+    else:
+       state7.set(0)
+
+    if binary2[7]==1:
+       state8.set(1)
+    else:
+       state8.set(0)
+
+
 
 
 def get_decimal():
-    binary = []
-    a=1
-    binary.append(a)
+    c1 = IntVar()
+    c1 = c1.get()
+    c2 = IntVar()
+    c2 = c2.get()
+    c3 = IntVar()
+    c3 = c3.get()
+    c4 = IntVar()
+    c4 = c4.get()
+    c5 = IntVar()
+    c5 = c5.get()
+    c6 = IntVar()
+    c6 = c6.get()
+    c7 = IntVar()
+    c7 = c7.get()
+    c8 = IntVar()
+    c8 = c8.get()
 
     e1.delete(0,tk.END)
-    e1.insert(0, state.get())
+    e1.insert(0, state1.get())
+    e1.delete(1,tk.END)
+    e1.insert(1, state2.get())
+    e1.delete(2,tk.END)
+    e1.insert(2, state3.get())
+    e1.delete(3,tk.END)
+    e1.insert(3, state4.get())
+    e1.delete(4,tk.END)
+    e1.insert(4, state5.get())
+    e1.delete(5,tk.END)
+    e1.insert(5, state6.get())  
+    e1.delete(6,tk.END)
+    e1.insert(6, state7.get())
+    e1.delete(7,tk.END)
+    e1.insert(7, state8.get())
+
+
+
+
+
+    binary = []
+    binary.append(state1.get())
+    binary.append(state2.get())
+    binary.append(state3.get())
+    binary.append(state4.get())
+    binary.append(state5.get())
+    binary.append(state6.get())
+    binary.append(state7.get())
+    binary.append(state8.get())
+
+
+    binary_to_decimal(binary)
 
 
     # function should read the checkboxes and generate a tuple called binary of length 8 that has 1's and 0's
     # this tuple will be used as an input parameter for binary_to_decimal and the result updated
     # in the entry box
-    binary = []
+
     decimal = binary_to_decimal(binary)
 
+    e1.delete(0, tk.END)
+    e1.delete(1, tk.END)
+    e1.delete(2, tk.END)
+    e1.delete(3, tk.END)
+    e1.delete(4, tk.END)
+    e1.delete(5, tk.END)
+    e1.delete(6, tk.END)
+    e1.delete(7, tk.END)
+
+    e1.insert(0, decimal)
+    #takes return from binary to decimal
 
 
 
-state = IntVar()
-state.set(1)
+e1 = Entry(win)
+e1.insert(0,state1.get())
 #--------------------------------------
 
 l1 = Label(win, text="Binary / Decimal Converter!")
-c1 = Checkbutton(win, variable = state, command=get_decimal())
-c2 = Checkbutton(win, variable = state, command=get_decimal())
-c3 = Checkbutton(win, variable = state, command=get_decimal())
-c4 = Checkbutton(win, variable = state, command=get_decimal())
-c5 = Checkbutton(win, variable = state, command=get_decimal())
-c6 = Checkbutton(win, variable = state, command=get_decimal())
-c7 = Checkbutton(win, variable = state, command=get_decimal())
-c8 = Checkbutton(win, variable = state, command=get_decimal())
+c1 = Checkbutton(win, variable = state1, command=get_decimal())
+c2 = Checkbutton(win, variable = state2, command=get_decimal())
+c3 = Checkbutton(win, variable = state3, command=get_decimal())
+c4 = Checkbutton(win, variable = state4, command=get_decimal())
+c5 = Checkbutton(win, variable = state5, command=get_decimal())
+c6 = Checkbutton(win, variable = state6, command=get_decimal())
+c7 = Checkbutton(win, variable = state7, command=get_decimal())
+c8 = Checkbutton(win, variable = state8, command=get_decimal())
 
 b1 = Button(win, text="Convert to Binary", command=get_binary)
 b2 = Button(win, text="Convert to Decimal", command=get_decimal)
-e1 = Entry(win)
+e1 = Entry(win, text="1")
 
 #-------------------------------------
 l1.pack()
@@ -103,3 +278,15 @@ e1.place(x=100, y=130)
 
 #--------------------------------------
 win.mainloop()
+
+#Next day to do
+
+#Decimal to binary, the 101010 in printed
+#1
+#0
+#1
+#0
+#1
+#0
+
+#Need to fix that into a tuple to then turn boxes and have binary on entry widget.
