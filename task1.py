@@ -26,21 +26,25 @@ window.geometry("320x160")
 win=window
 
 state1 = IntVar()
-state1.set(1)
+state1.set(0)
 state2 = IntVar()
-state2.set(1)
+state2.set(0)
 state3 = IntVar()
-state3.set(1)
+state3.set(0)
 state4 = IntVar()
-state4.set(1)
+state4.set(0)
 state5 = IntVar()
-state5.set(1)
+state5.set(0)
 state6 = IntVar()
-state6.set(1)
+state6.set(0)
 state7 = IntVar()
-state7.set(1)
+state7.set(0)
 state8 = IntVar()
-state8.set(1)
+state8.set(0)
+
+
+
+
 #------------------------------------------
 
 
@@ -96,15 +100,82 @@ def binary_to_decimal(binary):
 
     #return decimal 
 
-def decimal_to_binary(r):
+def decimal_to_binary(m1):
     binary2=[]
-    if r > 1:
-       decimal_to_binary(r//2)
-    s= (r % 2)
 
-    
-    binary2.append(s)
 
+    n1= m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+    n1 = m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+    n1 = m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+    n1 = m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+    n1 = m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+    n1 = m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+    n1 = m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+    n1 = m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+    n1 = m1%2
+    m1 = m1//2
+    binary2.append(n1)
+
+
+  #     o1= (n1 % 2)
+  #     o1= int(o1)
+  #     binary2.append(o1)
+  # else:
+  #     binary2.append(0)
+  # if n1 > 1:
+  #     p1= n1/2
+  #     q1= (p1 % 2)
+  #     q1= int(q1)
+  #     binary2.append(q1)
+  # if p1 > 1:
+  #     r1= p1/2
+  #     s1= (r1 % 2)
+  #     s1= int(s1)
+  #     binary2.append(s1)
+  # if r1 > 1:
+  #     t1= r1/2
+  #     u1= (t1 % 2)
+  #     u1= int(u1)
+  #     binary2.append(u1)
+  # if t1 > 1:
+  #     v1= t1/2
+  #     w1= (v1 % 2)
+  #     w1= int(w1)
+  #     binary2.append(w1)
+  # if v1 > 1:
+  #     y1= v1/2
+  #     z1= (y1 % 2)
+  #     z1= int(z1)
+  #     binary2.append(z1)
+
+
+   # if r > 1:
+    #   decimal_to_binary(r//2)
+    #s= (r % 2)
 
     # decimal is an integer value
     # binary is a tuple of length 8 that contains 1's and 0's
@@ -115,56 +186,77 @@ def decimal_to_binary(r):
 
 def get_binary():
 
-    r= e1.get()
-    r= int(r)
+    m1= e1.get()
+    m1= int(m1)
 
-    print(r)
 
     # function should read the entry widget and generate an integer
     # this integer will be used as an input parameter for decimal to binary and the result updated
     # in the 8 checkboxes
 
-    binary2 = decimal_to_binary(r)
+    binary2 = decimal_to_binary(m1)
 
-    if binary2[0]==1:
+    if binary2[7]==1:
         state1.set(1)
     else:
         state1.set(0)
 
-    if binary2[1]==1:
+    if binary2[6]==1:
         state2.set(1)
     else:
         state2.set(0)
 
-    if binary2[2]==1:
+    if binary2[5]==1:
         state3.set(1)
     else:
         state3.set(0)
 
-    if binary2[3]==1:
+    if binary2[4]==1:
        state4.set(1)
     else:
        state4.set(0)
 
-    if binary2[4]==1:
+    if binary2[3]==1:
        state5.set(1)
     else:
        state5.set(0)
 
-    if binary2[5]==1:
+    if binary2[2]==1:
        state6.set(1)
     else:
        state6.set(0)
 
-    if binary2[6]==1:
+    if binary2[1]==1:
        state7.set(1)
     else:
        state7.set(0)
 
-    if binary2[7]==1:
+    if binary2[0]==1:
        state8.set(1)
     else:
        state8.set(0)
+
+
+
+    e1.delete(0,tk.END)
+    e1.insert(0, state1.get())
+    e1.delete(1,tk.END)
+    e1.insert(1, state2.get())
+    e1.delete(2,tk.END)
+    e1.insert(2, state3.get())
+    e1.delete(3,tk.END)
+    e1.insert(3, state4.get())
+    e1.delete(4,tk.END)
+    e1.insert(4, state5.get())
+    e1.delete(5,tk.END)
+    e1.insert(5, state6.get())  
+    e1.delete(6,tk.END)
+    e1.insert(6, state7.get())
+    e1.delete(7,tk.END)
+    e1.insert(7, state8.get())
+    
+
+    
 
 
 
